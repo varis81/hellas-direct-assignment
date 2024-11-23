@@ -1,0 +1,1 @@
+INSERT INTO customer_communication (policy_reference, email, phone_number, policy_issued_date, status) VALUES ('IMD2JK', 'aris@test.com', '+306987755222', '2024-11-15 15:30:00', 'pending');
