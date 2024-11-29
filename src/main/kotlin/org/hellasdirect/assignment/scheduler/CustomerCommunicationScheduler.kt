@@ -16,6 +16,7 @@ class CustomerCommunicationScheduler(
     @Scheduled(cron = "0 0 22 * * ?", zone = "Europe/Athens")
     fun runWelcomeEmailScheduler() {
         log.info("Email sending scheduler executed at: ${LocalDateTime.now()}")
+        // we need to use distributed locking here to make sure that we do not send the emails twice
         val customerCommunications = customerCommunicationService.listUnansweredDelayedCustomerCommunications()
 
         customerCommunications.forEach {

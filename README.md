@@ -70,6 +70,7 @@ Alternatively, a request to the POST /customer-communication endpoint can be don
 * No fields should be unique on the db because we might send communications to the same customer multiple times. This service can be used for other kind of communication, not just welcome emails - we should handle statuses correctly though.
 * Validations are done in order to ensure that the input is valid in general. Here I only validated the email in order to show how to do it.
 * We should also validate the phone numbers - although they should be coming from another service and we should trust that validation happened there.
+* Distributed locking should be used on the scheduler in order to make sure that we are not sending the emails more than once
 
 #### Testing
 There are integration tests for all main classes, the controller, service and repository.
